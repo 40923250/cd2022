@@ -1,2 +1,0 @@
-https://github.com/EAPH/K4_Model_VREP
-A Khepera IV library for robotic control education using V-REP (https://www.sciencedirect.com/science/article/pii/S2405896317323303)
