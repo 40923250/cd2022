@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CD2022 - Misc</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2022-04-28T16:51:32+08:00</updated><entry><title>w10_block_ui</title><link href="./w10_block_ui.html" rel="alternate"></link><published>2022-04-28T16:50:00+08:00</published><updated>2022-04-28T16:51:32+08:00</updated><author><name>40923250</name></author><id>tag:None,2022-04-28:./w10_block_ui.html</id><summary type="html">&lt;p&gt;w10_block_ui&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CD2022 - Misc</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2022-04-28T17:07:58+08:00</updated><entry><title>w10_block_ui</title><link href="./w10%20block%20ui.html" rel="alternate"></link><published>2022-04-28T16:50:00+08:00</published><updated>2022-04-28T17:07:58+08:00</updated><author><name>40923250</name></author><id>tag:None,2022-04-28:./w10 block ui.html</id><summary type="html">&lt;p&gt;w10 block ui&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;w10 block ui&lt;/p&gt;
+
+
+&lt;h2&gt;fhjjdk&lt;/h2&gt;
+&lt;p&gt;fsaf&lt;/p&gt;
+&lt;h2&gt;fsafkm&lt;/h2&gt;
+&lt;p&gt;fafs&lt;/p&gt;</content><category term="Misc"></category><category term="40923250"></category></entry><entry><title>w10_block_ui</title><link href="./w10_block_ui.html" rel="alternate"></link><published>2022-04-28T16:50:00+08:00</published><updated>2022-04-28T16:51:32+08:00</updated><author><name>40923250</name></author><id>tag:None,2022-04-28:./w10_block_ui.html</id><summary type="html">&lt;p&gt;w10_block_ui&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;w10_block_ui&lt;/p&gt;
 
 
@@ -28,6 +35,16 @@
 &lt;p&gt;Flutter 可以用來開發跨 Apple 與 Android 手機與平板上的 Apps&lt;/p&gt;
 &lt;h2&gt;雲端空間&lt;/h2&gt;
 &lt;p&gt;test&lt;/p&gt;</content><category term="Misc"></category><category term="w6_40923250"></category></entry><entry><title>CD2022</title><link href="./w6_40923250.html" rel="alternate"></link><published>2022-03-31T15:00:00+08:00</published><updated>2022-04-28T16:36:30+08:00</updated><author><name>40923250</name></author><id>tag:None,2022-03-31:./w6_40923250.html</id><summary type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
+
+
+&lt;h2&gt;Python&lt;/h2&gt;
+&lt;p&gt;Python 可以用來開發單機版的視窗程式套件 Pyslvs-UI&lt;/p&gt;
+&lt;p&gt;Python 可以用來開發網際版的內容管理系統 CMSiMDE&lt;/p&gt;
+&lt;p&gt;Python 可以用來控制 CoppeliaSim 與 Webots 虛擬環境中的機電系統&lt;/p&gt;
+&lt;p&gt;Python 可以用於機器學習 Keras, Pytorch&lt;/p&gt;
+&lt;h2&gt;Flutter&lt;/h2&gt;
+&lt;p&gt;Flutter 可以用來開發跨 Apple 與 Android 手機與平板上的 Apps&lt;/p&gt;</content><category term="Misc"></category><category term="w6_40923250"></category></entry><entry><title>CD2022</title><link href="./w6_40923250.html" rel="alternate"></link><published>2022-03-31T15:00:00+08:00</published><updated>2022-04-28T17:07:56+08:00</updated><author><name>40923250</name></author><id>tag:None,2022-03-31:./w6_40923250.html</id><summary type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
 
 
