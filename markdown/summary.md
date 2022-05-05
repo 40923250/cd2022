@@ -15,9 +15,11 @@ w7_summary 工作栽要說明
 ----
 to be continued..
 
+
 為何要在大組倉儲中建立 Reveal 投影片與 Pelican Blog?
 ----
 以便查閱推送紀錄，可以使用git blame查閱推送編輯者是誰
+
 
 可以利用 Leo Editor 延續開發 scarysim 程式功能嗎?
 ----
