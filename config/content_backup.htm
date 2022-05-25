@@ -58,8 +58,37 @@ var winkVideoData_w10_ssh = {
 <h2>w11-1</h2>
 <p>241</p>
 <h2>w11-2</h2>
-<p>45</p>
-<h1>online</h1>
+<p><span><strong>STL</strong><br/>STL文件是一種用許多空間小三角形面片逼近三維實體表面的數據模型，通過給出組成三角形法向量的3個分量(用於確定三角面片的正反方向)及三角形的3個頂點座標來實現，目前的STL文件格式包括二進制文件(BINARY)和文本文件(ASCII)兩種。</span></p>
+<p><span><strong>文本文件ASCII</strong><br/>ASCII碼格式的STL文件逐行給出三角面片的幾何信息，每一行以1個或2個關鍵字開頭。在STL文件中的三角面片的<span style="text-decoration: underline;">信息單元facet</span>是一個帶矢量方向的三角面片，STL文件的首行包含了文件路徑及文件名，在一個STL文件中，每一個facet由7行數據組成，<span style="text-decoration: underline;"><strong>facet normal</strong>是三角面片指向實體外部的法矢量座標</span>，outer loop說明隨後的3行數據分別是三角面片的3個頂點座標，3頂點沿指向實體外部的法矢量方向<span>逆時針排列。</span><br/><strong></strong></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">facet normal ni nj nk
+    outer loop
+        vertex v1x v1y v1z
+        vertex v2x v2y v2z
+        vertex v3x v3y v3z
+    endloop
+endfacet</pre>
+<pre><br/><br/></pre>
+<p><span><strong>二進制文件BINARY</strong></span></p>
+<p><span>二進碼STL檔有個80</span>字元<span>的</span>檔頭，接著是一個4位元組<span class="ilh-all" data-foreign-title="Signedness" data-lang-code="en" data-lang-name="英語" data-orig-title="無號整數"><span class="ilh-page">無號整數</span><span class="noprint ilh-comment"><span class="ilh-link"><span dir="auto" lang="en">Signedness</span></span></span></span>，它表示這檔案中的三角形數。再來是描述每個三角形的資訊。之後就結束。</p>
+<p>每個三角形以12個32位元浮點數來描述：3個描述法線，接著三頂點的X/Y/Z座標─正如文字STL一樣。之後是一個2位元組無號整數unsigned short，它代表「屬性字元數」在標準格式中它該是0，因為多數軟體不明白其它事項。</p>
+<p>雖然檔案內沒有說明，浮點數以little-endian的IEEE 754表示。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">UINT8[80] – Header
+UINT32 – Number of triangles
+
+
+foreach triangle
+REAL32[3] – Normal vector
+REAL32[3] – Vertex 1
+REAL32[3] – Vertex 2
+REAL32[3] – Vertex 3
+UINT16 – Attribute byte count
+end</pre>
+<p><strong>ASCII格式的STL文件結構比較<br/></strong><span>二進制格式文件較小(通常是ASC¨碼格式的1／5)，節省文件存儲空間，而ASCII碼格式的文件可讀性更強，更容易進行進一步的數據處理。</span></p>
+<p><span>參考來源:<a href="https://www.twblogs.net/a/5b7fddb52b717767c6b22971">https://www.twblogs.net/a/5b7fddb52b717767c6b22971<br/></a>             <a href="https://zh.m.wikipedia.org/zh-tw/STL_(%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F)">https://zh.m.wikipedia.org/zh-tw/STL_(%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F)</a>     </span></p>
+<div class="winkVideoControlBarProgressRightClass"></div>
+<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+<div class="winkVideoControlBarProgressThumbClass"></div>
+<div class="winkVideoPlayOverlayClass"></div><h1>online</h1>
 <h2>W12</h2>
 <p></p>
 <p>W12</p>
