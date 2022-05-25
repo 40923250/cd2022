@@ -2,6 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -92,6 +93,7 @@ img.add_border {
 </head>
 <body>
 <div class='container-fluid'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -137,4 +139,85 @@ img.add_border {
           </div>
           
         </header>
-    </nav><section><h1>Site Map</h1><div id="tipue_search_content"></div><ul><li><a href='About.html'>About</a><li><a href='Group.html'>Group</a><li><a href='W3.html'>W3</a><li><a href='W10.html'>W10</a><ul><li><a href='w10_block_ui.html'>w10_block_ui</a><li><a href='w10_nx_integ.html'>w10_nx_integ</a><li><a href='w10_ssh.html'>w10_ssh</a></li></ul><li><a href='W11.html'>W11</a><ul><li><a href='w11-1.html'>w11-1</a><li><a href='w11-2.html'>w11-2</a></li></ul><li><a href='online.html'>online</a><ul><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">w11-1 << <a href='w11-1.html'>Previous</a> <a href='online.html'>Next</a> >> online<br /><h1>w11-2</h1>
+<p><span><strong>STL</strong><br/>STL文件是一種用許多空間小三角形面片逼近三維實體表面的數據模型，通過給出組成三角形法向量的3個分量(用於確定三角面片的正反方向)及三角形的3個頂點座標來實現，目前的STL文件格式包括二進制文件(BINARY)和文本文件(ASCII)兩種。</span></p>
+<p><span><strong>文本文件ASCII</strong><br/>ASCII碼格式的STL文件逐行給出三角面片的幾何信息，每一行以1個或2個關鍵字開頭。在STL文件中的三角面片的<span style="text-decoration: underline;">信息單元facet</span>是一個帶矢量方向的三角面片，STL文件的首行包含了文件路徑及文件名，在一個STL文件中，每一個facet由7行數據組成，<span style="text-decoration: underline;"><strong>facet normal</strong>是三角面片指向實體外部的法矢量座標</span>，outer loop說明隨後的3行數據分別是三角面片的3個頂點座標，3頂點沿指向實體外部的法矢量方向<span>逆時針排列。</span><br/><strong></strong></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">facet normal ni nj nk
+    outer loop
+        vertex v1x v1y v1z
+        vertex v2x v2y v2z
+        vertex v3x v3y v3z
+    endloop
+endfacet</pre>
+<pre><br/><br/></pre>
+<p><span><strong>二進制文件BINARY</strong></span></p>
+<p><span>二進碼STL檔有個80</span>字元<span>的</span>檔頭，接著是一個4位元組<span class="ilh-all" data-foreign-title="Signedness" data-lang-code="en" data-lang-name="英語" data-orig-title="無號整數"><span class="ilh-page">無號整數</span><span class="noprint ilh-comment"><span class="ilh-link"><span dir="auto" lang="en">Signedness</span></span></span></span>，它表示這檔案中的三角形數。再來是描述每個三角形的資訊。之後就結束。</p>
+<p>每個三角形以12個32位元浮點數來描述：3個描述法線，接著三頂點的X/Y/Z座標─正如文字STL一樣。之後是一個2位元組無號整數unsigned short，它代表「屬性字元數」在標準格式中它該是0，因為多數軟體不明白其它事項。</p>
+<p>雖然檔案內沒有說明，浮點數以little-endian的IEEE 754表示。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">UINT8[80] – Header
+UINT32 – Number of triangles
+
+
+foreach triangle
+REAL32[3] – Normal vector
+REAL32[3] – Vertex 1
+REAL32[3] – Vertex 2
+REAL32[3] – Vertex 3
+UINT16 – Attribute byte count
+end</pre>
+<p><strong>ASCII格式的STL文件結構比較<br/></strong><span>二進制格式文件較小(通常是ASC¨碼格式的1／5)，節省文件存儲空間，而ASCII碼格式的文件可讀性更強，更容易進行進一步的數據處理。</span></p>
+<p><span>參考來源:<a href="https://www.twblogs.net/a/5b7fddb52b717767c6b22971">https://www.twblogs.net/a/5b7fddb52b717767c6b22971<br/></a>             <a href="https://zh.m.wikipedia.org/zh-tw/STL_(%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F)">https://zh.m.wikipedia.org/zh-tw/STL_(%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F)</a>     </span></p>
+<div class="winkVideoControlBarProgressRightClass"></div>
+<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+<div class="winkVideoControlBarProgressThumbClass"></div>
+<div class="winkVideoPlayOverlayClass"></div><br />w11-1 << <a href='w11-1.html'>Previous</a> <a href='online.html'>Next</a> >> online</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
