@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Group.html'>Group</a><li><a href='W3.html'>W3</a><li><a href='W8.html'>W8</a><li class='has-children'><a href='W10.html'>W10</a><ul class='dropdown'><li><a href='w10_block_ui.html'>w10_block_ui</a><li><a href='w10_nx_integ.html'>w10_nx_integ</a><li><a href='w10_ssh.html'>w10_ssh</a></li></ul><li class='has-children'><a href='W11.html'>W11</a><ul class='dropdown'><li><a href='w11-1.html'>w11-1</a><li><a href='w11-2.html'>w11-2</a></li></ul><li class='has-children'><a href='online.html'>online</a><ul class='dropdown'><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a></li></ul><li><a href='W16.html'>W16</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Group.html'>Group</a><li class='has-children'><a href='W3.html'>W3</a><ul class='dropdown'><li><a href='View Controls.html'>View Controls</a><li><a href='Homework 01.html'>Homework 01</a><li><a href='Lab 01 - Triangle Sketches.html'>Lab 01 - Triangle Sketches</a><li><a href='Homework 02A - Step Block.html'>Homework 02A - Step Block</a><li><a href='Homework 02B - Flywheel.html'>Homework 02B - Flywheel</a></li></ul><li><a href='W8.html'>W8</a><li class='has-children'><a href='W10.html'>W10</a><ul class='dropdown'><li><a href='w10_block_ui.html'>w10_block_ui</a><li><a href='w10_nx_integ.html'>w10_nx_integ</a><li><a href='w10_ssh.html'>w10_ssh</a></li></ul><li class='has-children'><a href='W11.html'>W11</a><ul class='dropdown'><li><a href='w11-1.html'>w11-1</a><li><a href='w11-2.html'>w11-2</a></li></ul><li class='has-children'><a href='online.html'>online</a><ul class='dropdown'><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a></li></ul><li><a href='W16.html'>W16</a></li>
                       </ul>
                 </nav>
               </div>
@@ -140,9 +140,132 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">online << <a href='online.html'>Previous</a> <a href='W13.html'>Next</a> >> W13<br /><h1>W12</h1>
+<p>計算零件數:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import NXOpen
+   
+def main():
+    # 取得目前開啟的工作階段
+    theSession = NXOpen.Session.GetSession()
+    # 建立 ListingWindow
+    listWin= theSession.ListingWindow
+    # 開啟零件檔案
+    try:
+        basePart1 = theSession.Parts.OpenBaseDisplay("Y:/mdecycu/cd2022_guide/downloads/cd2022_uarm/uArmSwiftPro_UP1300_3D_assembly.prt")
+    except:
+        # 零件已經開啟
+        pass
+     
+    # 開啟 Listing Window
+    listWin.Open()
+    # 將已經開啟的零件對應至 displayPart
+    displayPart = theSession.Parts.Display
+    # 計算引用零件數目
+    partNumber = 0
+    # 存放個別零件名稱的數列
+    partList = []
+    # 利用組立組件的根組件 GetChildren 方法逐一列出各子組件的名稱
+    for child in displayPart.ComponentAssembly.RootComponent.GetChildren():
+        listWin.WriteLine(child.DisplayName)
+        # 個別零件數列不計入重複引用的零件
+        if child.DisplayName not in partList:
+            partList.append(child.DisplayName)
+        # 引用零件數累計
+        partNumber += 1
+    # 在 Listing Window 中列出相關資訊
+    listWin.WriteLine("總共引用 " + str(partNumber) + " 個子零件.")
+    listWin.WriteLine("其中個別零件總數為" + str(len(partList)))
+                             
+if __name__ == "__main__":
+    main()</pre>
+<p><br/><br/></p>
+<p>列出組立檔案中所有零件:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">Option Strict Off  
+ 
+Imports System  
+Imports NXOpen  
+Imports NXOpen.UF  
+Imports NXOpen.Assemblies  
+ 
+Module NXJournal  
+ 
+    Public theSession As Session = Session.GetSession()  
+    Public ufs As UFSession = UFSession.GetUFSession()  
+    Public lw As ListingWindow = theSession.ListingWindow  
+ 
+    Sub Main()  
+        Dim workPart As Part = theSession.Parts.Work  
+        Dim dispPart As Part = theSession.Parts.Display  
+ 
+        lw.Open()  
+        Try  
+            Dim c As ComponentAssembly = dispPart.ComponentAssembly  
+ 'to process the work part rather than the display part,
+ '  comment the previous line and uncomment the following line
+ 'Dim c As ComponentAssembly = workPart.ComponentAssembly
+            If Not IsNothing(c.RootComponent) Then  
+ '*** insert code to process 'root component' (assembly file)
+                lw.WriteLine("Assembly: " &amp; c.RootComponent.DisplayName)  
+                lw.WriteLine(" + Active Arrangement: " &amp; c.ActiveArrangement.Name)  
+ '*** end of code to process root component
+                reportComponentChildren(c.RootComponent, 1)  
+            Else  
+ '*** insert code to process piece part
+                lw.WriteLine("Part has no components")  
+            End If  
+        Catch e As Exception  
+            theSession.ListingWindow.WriteLine("Failed: " &amp; e.ToString)  
+        End Try  
+        lw.Close()  
+ 
+    End Sub  
+ 
+ '**********************************************************
+    Sub reportComponentChildren(ByVal comp As Component, ByVal indent As Integer)  
+ 
+        Dim numOccs(-1) As Tag  
+ 
+        For Each child As Component In comp.GetChildren()  
+ '*** insert code to process component or subassembly
+            lw.WriteLine(New String(" ", indent * 2) &amp; child.DisplayName &amp; vbTab &amp; child.Name)  
+            Try  
+                ufs.Assem.AskOccsOfPart(comp.Prototype.OwningPart.Tag, child.Prototype.OwningPart.Tag, numOccs)  
+                lw.WriteLine(New String(" ", indent * 2) &amp; "Quantity: " &amp; numOccs.GetLength(0))  
+            Catch ex As System.NullReferenceException  
+                lw.WriteLine(New String(" ", indent * 2) &amp; "*** Component quantity information unavailable (component not loaded)")  
+            Catch ex As ApplicationException  
+ 
+            End Try  
+ 
+ '*** end of code to process component or subassembly
+            If child.GetChildren.Length &lt;&gt; 0 Then  
+ '*** this is a subassembly, add code specific to subassemblies
+                lw.WriteLine(New String(" ", indent * 2) &amp; _  
+                 "* subassembly with " &amp; _  
+                 child.GetChildren.Length &amp; " components")  
+                lw.WriteLine(New String(" ", indent * 2) &amp; _  
+                 " + Active Arrangement: " &amp; _  
+                 child.OwningPart.ComponentAssembly.ActiveArrangement.Name)  
+ '*** end of code to process subassembly
+            Else  
+ 'this component has no children (it is a leaf node)
+ 'add any code specific to bottom level components
+            End If  
+            lw.WriteLine("")  
+            reportComponentChildren(child, indent + 1)  
+ 
+        Next  
+ 
+    End Sub  
+ '**********************************************************
+    Public Function GetUnloadOption(ByVal dummy As String) As Integer  
+        Return Session.LibraryUnloadOption.Immediately  
+    End Function  
+ '**********************************************************
+ 
+End Module</pre>
 <p></p>
-<p>W12</p>
-<br />online << <a href='online.html'>Previous</a> <a href='W13.html'>Next</a> >> W13</div>
+<p><a href="https://mde.tw/cd2022_guide/content/w12%20%E4%BB%BB%E5%8B%99.html">https://mde.tw/cd2022_guide/content/w12%20%E4%BB%BB%E5%8B%99.html</a></p>
+<p><a href="https://mde.tw/cd2022_guide/content/NXOpen%20Python.html">https://mde.tw/cd2022_guide/content/NXOpen%20Python.html</a></p><br />online << <a href='online.html'>Previous</a> <a href='W13.html'>Next</a> >> W13</div>
         
     <!-- footer -->
       <div class="container">
